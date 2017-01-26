@@ -20,9 +20,8 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := xlarge
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xxxhdpi hdpi mdpi
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -62,12 +61,19 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     #frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
+# Ramdisk
 PRODUCT_PACKAGES += \
+    fstab.universal5420 \
     init.target.rc \
     ueventd.universal5420.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
+
+# call dalvik heap and hwui config
+ $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
+ 
+ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/chagallwifi/chagallwifi-vendor.mk)

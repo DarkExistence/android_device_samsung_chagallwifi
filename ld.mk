@@ -4,10 +4,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # Inherit from chagallwifi device
 $(call inherit-product, device/samsung/chagallwifi/device.mk)
 
-# Inherit some common lineage stuff.
-$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
+# Inherit some common ld stuff.
+$(call inherit-product, vendor/ld/config/common_full_tablet_wifionly.mk)
 
-PRODUCT_NAME := lineage_chagallwifi
+PRODUCT_NAME := ld_chagallwifi
 PRODUCT_DEVICE := chagallwifi
 
 PRODUCT_BRAND := samsung
