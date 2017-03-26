@@ -37,6 +37,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
 
+# Assert for flash script
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.assert.device=chagallwifi
+
 # setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, vendor/samsung/chagallwifi/chagallwifi-vendor.mk)
