@@ -39,6 +39,11 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += \
     device/samsung/chagallwifi/overlay
 
+# GPS Shim
+PRODUCT_PACKAGES += \
+    libdmitry
+
+
 # Camera Hacks
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
